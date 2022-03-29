@@ -20,7 +20,7 @@ module Api
         if @address.save
           render json: @address, status: :Created
         else
-          render json: { error. @address.errors.full_messages }, status: 422
+          render json: { error: @address.errors.full_messages }, status: 422
         end
       end
 
@@ -31,7 +31,7 @@ module Api
         if @address.update(address_params)
           render json: @address, status: :created
         else
-          render json: { error. @address.errors.full_messages }, status: 422
+          render json: { error: @address.errors.full_messages }, status: 422
         end
       end
 
@@ -42,7 +42,7 @@ module Api
         if @address.destroy
           render json: { status: 'success' }
         else
-          render json: { error. @address.errors.full_messages }, status: 422
+          render json: { error: @address.errors.full_messages }, status: 422
         end
       end
 

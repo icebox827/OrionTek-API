@@ -20,7 +20,7 @@ module Api
         if @client.save
           render json: @client, status: :created
         else
-          render json: { error. @client.errors.full_messages }, status: 422
+          render json: { error: @client.errors.full_messages }, status: 422
         end
       end
 
@@ -31,7 +31,7 @@ module Api
         if @client.update(client_params)
           render json: @client, status: :updated
         else
-          render json: { error. @client.errors.full_messages }, status: 422
+          render json: { error: @client.errors.full_messages }, status: 422
         end
       end
 
@@ -42,7 +42,7 @@ module Api
         if @client.destroy
           render json: { status: 'success' }
         else
-          render json: { error. @client.errors.full_messages }, status: 422
+          render json: { error: @client.errors.full_messages }, status: 422
         end 
       end
 
