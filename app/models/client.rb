@@ -2,9 +2,9 @@ class Client < ApplicationRecord
   # Validations
   validates :first_name, presence: true, length: { minimum: 2, maximum: 20 }
   validates :last_name, presence: true, length: { minimum: 2, maximum: 25 }
-  validates :email, presence:true, uniqueness: { case_sensitive: true }
+  validates :email, presence: true, uniqueness: { case_sensitive: true }
   validates_format_of :email, with: /\A\S+@.+\.\S+\z/
-  validates :company_id, presence:true
+  validates :company_id, presence: true
 
   # Associations
   belongs_to :company

@@ -3,7 +3,7 @@ class Address < ApplicationRecord
   validates :street, presence: true
   validates :city, presence: true, length: { minimum: 2 }
   validates :state, presence: true, length: { minimum: 2 }
-  validates :zip, presence :true, length: { minimum: 6, maximum: 15 }
+  validates :zip, presence: true, length: { minimum: 6, maximum: 15 }
   validates :client_id, presence: true
 
   # Associations
