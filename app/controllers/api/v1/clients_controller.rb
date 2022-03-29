@@ -18,7 +18,7 @@ module Api
         @client = @company.clients.build(client_params)
 
         if @client.save
-          render json: { message: 'Client created successfully' }, status: 200
+          render json: @client, status: :created
         else
           render json: { error. @client.errors.full_messages }, status: 422
         end
