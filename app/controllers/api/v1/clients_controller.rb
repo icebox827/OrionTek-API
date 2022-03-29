@@ -8,7 +8,7 @@ module Api
       end
 
       # Display a single client
-      def show 
+      def show
         @client = Client.find(params[:id])
         render json: @client
       end
@@ -43,10 +43,11 @@ module Api
           render json: { status: 'success' }
         else
           render json: { error: @client.errors.full_messages }, status: 422
-        end 
+        end
       end
 
       private
+
       # Client parameters
       def client_params
         params.permit(:client).require(:first_name, :last_name, :email, :phone)

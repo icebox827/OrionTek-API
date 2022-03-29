@@ -1,5 +1,5 @@
 module Api
-  module V1 
+  module V1
     class CompaniesController < ApplicationController
       # Display company
       def show
@@ -30,6 +30,7 @@ module Api
       end
 
       private
+
       # Set company parameters
       def company_params
         params.require(:name)

@@ -1,5 +1,5 @@
 module Api
-  module V1 
+  module V1
     class AddressesController < ApplicationController
       # display addresses
       def index
@@ -36,7 +36,7 @@ module Api
       end
 
       # Detroy addresses
-      def destroy 
+      def destroy
         @address = Address.find(params[:id])
 
         if @address.destroy
@@ -47,6 +47,7 @@ module Api
       end
 
       private
+
       # Set address parameters
       def address_params
         params.permit(:address).require(:street, :city, :state, :zip)
