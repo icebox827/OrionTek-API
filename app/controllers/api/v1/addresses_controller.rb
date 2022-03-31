@@ -15,7 +15,7 @@ module Api
 
       # Create addresses
       def create
-        @address = @client.addresses.build(address_params)
+        @address = Address.new(address_params)
 
         if @address.save
           render json: @address, status: :Created
@@ -50,7 +50,7 @@ module Api
 
       # Set address parameters
       def address_params
-        params.permit(:address).require(:street, :city, :state, :zip)
+        params.permit(:street, :city, :state, :zip, :client_id)
       end
     end
   end

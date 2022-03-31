@@ -15,7 +15,7 @@ module Api
 
       # Create clients
       def create
-        @client = @company.clients.build(client_params)
+        @client = Client.new(client_params)
 
         if @client.save
           render json: @client, status: :created
@@ -26,7 +26,7 @@ module Api
 
       # Update clients
       def update
-        @client = Company.find(params[:id])
+        @client = Client.find(params[:id])
 
         if @client.update(client_params)
           render json: @client, status: :updated
@@ -37,7 +37,7 @@ module Api
 
       # destroy clients
       def destroy
-        @client = Company.find(params[:id])
+        @client = Client.find(params[:id])
 
         if @client.destroy
           render json: { status: 'success' }
@@ -50,7 +50,7 @@ module Api
 
       # Client parameters
       def client_params
-        params.permit(:client).require(:first_name, :last_name, :email, :phone)
+        params.permit(:first_name, :last_name, :email, :phone, :company_id)
       end
     end
   end

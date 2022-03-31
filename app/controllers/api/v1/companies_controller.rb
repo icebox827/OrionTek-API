@@ -33,7 +33,7 @@ module Api
 
       # Set company parameters
       def company_params
-        params.require(:name)
+        params.permit(:name)
       end
     end
   end
