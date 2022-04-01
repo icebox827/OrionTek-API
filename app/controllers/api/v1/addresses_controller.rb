@@ -3,21 +3,22 @@ module Api
     class AddressesController < ApplicationController
       before_action :set_client, only: %i[show update destroy]
       before_action :get_client
+
       # display addresses
       def index
-        @addresses = Address.all
+        @addresses = @client.addresses
         render json: @addresses
       end
 
       # Display a single address
       def show
-        @address = Address.find(params[:id])
+        @address = @client.addresses.build(params[:id])
         render json: @address
       end
 
       # Create addresses
       def create
-        @address = Address.new(address_params)
+        @address = @client.addresses.build(address_params)
 
         if @address.save
           render json: @address, status: :Created
@@ -28,7 +29,7 @@ module Api
 
       # Update addresses
       def update
-        @address = Address.find(params[:id])
+        @address = @client.addresses.find(params[:id])
 
         if @address.update(address_params)
           render json: @address, status: :created
@@ -39,7 +40,7 @@ module Api
 
       # Detroy addresses
       def destroy
-        @address = Address.find(params[:id])
+        @address = @client.addresses.find(params[:id])
 
         if @address.destroy
           render json: { status: 'success' }
@@ -49,6 +50,10 @@ module Api
       end
 
       private
+      # Get clients
+      def get_client
+        @client = Client.find(params[:client_id])
+      end
 
       # Set address parameters
       def address_params
