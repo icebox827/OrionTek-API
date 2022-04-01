@@ -1,5 +1,4 @@
 class Client < ApplicationRecord
-  attr_accessor :first_name, :last_name, :email, :phone
   # Validations
   validates :first_name, presence: true, length: { minimum: 2, maximum: 20 }
   validates :last_name, presence: true, length: { minimum: 2, maximum: 25 }

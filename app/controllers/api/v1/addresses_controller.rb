@@ -1,6 +1,8 @@
 module Api
   module V1
     class AddressesController < ApplicationController
+      before_action :set_client, only: %i[show update destroy]
+      before_action :get_client
       # display addresses
       def index
         @addresses = Address.all
