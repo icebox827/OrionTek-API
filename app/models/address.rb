@@ -1,4 +1,5 @@
 class Address < ApplicationRecord
+  attr_accessor :street, :city, :state, :zip
   # Validations
   validates :street, presence: true
   validates :city, presence: true, length: { minimum: 2 }

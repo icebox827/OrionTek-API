@@ -1,8 +1,10 @@
 class Client < ApplicationRecord
+  attr_accessor :first_name, :last_name, :email, :phone
   # Validations
   validates :first_name, presence: true, length: { minimum: 2, maximum: 20 }
   validates :last_name, presence: true, length: { minimum: 2, maximum: 25 }
   validates :email, presence: true, uniqueness: { case_sensitive: true }
+  validates :phone, presence: true, length: { minimum: 4, maximum: 20 }
   validates_format_of :email, with: /\A\S+@.+\.\S+\z/
   validates :company_id, presence: true
 
